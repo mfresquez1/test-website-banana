@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Isotope</title>
+  </head>
+  <body>
+    <!-- buttons -->
+    <div class="button-group filter-button-group">
+      <button data-filter="*">show all</button>
+      <button data-filter=".first">first</button>
+      <button data-filter=".second">second</button>
+    </div>
+    <!-- grid -->
+    <div class="grid">
+      <div class="element-item first">
+        <img src="./images/projects-city-1.jpeg" width="100px" alt="" />
+      </div>
+      <div class="element-item second">
+        <img src="./images/projects-city-2.jpeg" width="100px" alt="" />
+      </div>
+      <div class="element-item first">
+        <img src="./images/projects-city-1.jpeg" width="100px" alt="" />
+      </div>
+      <div class="element-item second">
+        <img src="./images/projects-city-2.jpeg" width="100px" alt="" />
+      </div>
+      <div class="element-item first">
+        <img src="./images/projects-city-1.jpeg" width="100px" alt="" />
+      </div>
+      <div class="element-item second">
+        <img src="./images/projects-city-2.jpeg" width="100px" alt="" />
+      </div>
+    </div>
+    <!-- NOTE: JQUERY CDN MUST PRECEDE ISOTPE.JS AS SEEN BELOW FOR THE CODE TO WORK! -->
+    <!-- JQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Isotope JS -->
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <!-- Isotope Script -->
+    <script>
+      // init Isotope
+      let $grid = $(".grid").isotope({
+        // options
+      });
+      // filter items on button click
+      $(".filter-button-group").on("click", "button", function () {
+        let filterValue = $(this).attr("data-filter");
+        $grid.isotope({ filter: filterValue });
+      });
+    </script>
+  </body>
+</html>
